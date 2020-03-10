@@ -32,16 +32,17 @@
     "provisioners": [
         {
             "type": "shell",
-            "environment_vars": [
-                "FOO=foo"
-            ],
             "inline": [
                 "sudo apt-get update",
-                "sudo apt-get install openjdk-8-jdk ruby wget -y",
+                "sudo apt-get install openjdk-8-jdk -y",
+                "sudo apt-get install ruby -y",
                 "cd /home/ubuntu",
-                "wget https://aws-codedeploy-us-east-1.s3.amazonaws.com/latest/install",
-                "chmod +x ./install",
-                "sudo ./install auto"
+                "wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install",
+                "sudo chmod +x ./install",
+                "sudo ./install auto",
+                "echo 'install codedeploy-agent finish'",
+                "sudo service codedeploy-agent start",
+                "sudo service codedeploy-agent status"
             ]
         }
     ]
