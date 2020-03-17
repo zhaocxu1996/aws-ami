@@ -6,3 +6,4 @@ packer_cache/
 
 
 ami-vars-local.json
+vars.json
