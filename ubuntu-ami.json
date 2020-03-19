@@ -39,13 +39,13 @@
                 "sudo apt-get install ruby -y",
                 "sudo apt install rpm -y",
                 "cd /home/ubuntu",
-                "wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install https://s3.us-east-1.amazonaws.com/amazoncloudwatch-agent-us-east-1/amazon_linux/amd64/latest/amazon-cloudwatch-agent.rpm",
+                "wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install https://s3.us-east-1.amazonaws.com/amazoncloudwatch-agent-us-east-1/amazon_linux/amd64/latest/amazon-cloudwatch-agent.deb",
                 "sudo chmod +x ./install",
                 "sudo ./install auto",
                 "echo 'install codedeploy-agent finish'",
                 "sudo service codedeploy-agent start",
                 "sudo service codedeploy-agent status",
-                "sudo rpm -U ./amazon-cloudwatch-agent.rpm"
+                "sudo dpkg -i -E ./amazon-cloudwatch-agent.deb"
             ]
         }
     ]
