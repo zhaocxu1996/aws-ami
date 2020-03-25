@@ -18,6 +18,7 @@
             "source_ami": "{{user `source_ami`}}",
             "ssh_username": "{{user `ssh_username`}}",
             "ami_name": "csye6225_{{timestamp}}",
+            "ami_users": "896116135336,568769890102",
             "ami_description": "Ubuntu AMI for CSYE 6225 - Spring 2020",
             "launch_block_device_mappings": [
                 {
@@ -36,13 +37,15 @@
                 "sudo apt-get update",
                 "sudo apt-get install openjdk-8-jdk -y",
                 "sudo apt-get install ruby -y",
+                "sudo apt install rpm -y",
                 "cd /home/ubuntu",
-                "wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install",
+                "wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb",
                 "sudo chmod +x ./install",
                 "sudo ./install auto",
                 "echo 'install codedeploy-agent finish'",
                 "sudo service codedeploy-agent start",
-                "sudo service codedeploy-agent status"
+                "sudo service codedeploy-agent status",
+                "sudo dpkg -i -E ./amazon-cloudwatch-agent.deb"
             ]
         }
     ]
