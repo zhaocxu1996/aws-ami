@@ -29,3 +29,9 @@ jobs:
             -var "aws_region=${AWS_REGION}" \
             -var "subnet_id=${AWS_SUBNET_ID}" \
             ubuntu-ami.json
+            ./packer build \
+            -var "aws_access_key=${PROD_ACCESS_KEY}" \
+            -var "aws_secret_key=${PROD_SECRET_KEY}" \
+            -var "aws_region=${AWS_REGION}" \
+            -var "subnet_id=${PROD_SUBNET_ID}" \
+            ubuntu-ami.json
